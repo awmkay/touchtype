@@ -1,2 +1,2 @@
-archie	abcde
-lilah	abc
+archie	aeioulsop	8
+lilah	abc	6
