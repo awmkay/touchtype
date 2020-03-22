@@ -1,2 +1,3 @@
 # ignore file as updated every time used
 word_list_specific.txt
+__pycache__

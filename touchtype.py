@@ -3,15 +3,10 @@ import sys
 import os
 import string
 import re
+import time
 
-
-def letter_check(letters, word_list, word_list_specific):
-    word = word_list.readline()
-    while word:
-        if re.match('^[{}]+$'.format(letters), word):
-            word_list_specific.write(word)
-        word = word_list.readline()
-
+# Import functions from functions.py
+import functions as fn
 
 # Setup basic user variables
 users = open('users.txt', 'r')
@@ -27,6 +22,18 @@ while user_info[0] != user:
     user_info[1] = user_info[1].rstrip()
 
 
-# Search word list for words with specific letters
+# Search word list for words with specific letters and set word list
 print(user_info[1])
-letter_check(user_info[1], word_list, word_list_specific)
+fn.letter_check(user_info[1], word_list, word_list_specific)
+
+# Check whether to start game
+ready = input('Are you ready to start? (y / n) ').lower()
+if ready != 'y':
+    sys.exit()
+
+# Game startup message
+print('Starting in...')
+for i in range(3):
+    print(str(3 - i) + '...')
+    time.sleep(1)
+print('Start!')
