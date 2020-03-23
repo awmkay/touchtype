@@ -33,16 +33,28 @@ def game(words, timing, num_words):
         while typed != line and typed != exit_str:
             print(line)
             typed = input().rstrip()
-        
+
         # stop timing
         t2 = float(time.time())
 
-        # time calculations
-        time_dif = float(t2 - t1)
-        wpm = num_words * 60 / time_dif
+        if typed != exit_str:
+            # time calculations
+            time_dif = float(t2 - t1)
+            wpm = num_words * 60 / time_dif
 
-        print(wpm)
-        timing.write(str(wpm) + '\n')
+            print(wpm)
+            timing.write(str(wpm) + '\n')
 
 
+def startup():
+    # check whether user wants to play
+    ready = input('Are you ready to start? (y / n): ').lower()
+    if ready != 'y':
+        sys.exit()
 
+    # startup message
+    print('Starting in...')
+    for i in range(3):
+        print(str(3 - i) + '...')
+        time.sleep(1)
+    print('Start!')
