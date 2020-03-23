@@ -36,11 +36,11 @@ while user_info[0] != user:
     user_info[1] = user_info[1].rstrip()
 
 
-# Search word list for appropriate words
+# Search word list file for appropriate words and store in other file
 fn.letter_check(user_info[1], word_list, word_list_specific)
-word_list_specific = open(os.path.join(
-    cwd, '..', 'resources', 'word_list_specific.txt'), 'r')
-words = word_list_specific.read().splitlines()
+
+# Write appropriate words to word list
+words = fn.word_write(user_info[1], cwd, word_list_specific)
 
 # Startup stuff
 fn.startup()

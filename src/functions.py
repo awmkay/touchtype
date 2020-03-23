@@ -58,3 +58,11 @@ def startup():
         print(str(3 - i) + '...')
         time.sleep(1)
     print('Start!')
+
+
+def word_write(name, cwd, word_list_specific):
+    word_list_specific = open(os.path.join(
+        cwd, '..', 'resources', 'word_list_specific.txt'), 'r')
+    words = word_list_specific.read().splitlines()
+    word_list_specific.close()
+    return words
